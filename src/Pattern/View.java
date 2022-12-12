@@ -26,20 +26,23 @@ public class View implements ViewInterface {
     }
 
     @Override
-    public void Statistics(double profit, double monthlyProfit, int cost, int MonthlyCost, int Score) {
-        System.out.println("Final profit : " + profit);
-        System.out.println("Final costs : " + cost);
+    public void Statistics(double cash, int monthlyProfit, int cost, double MonthlyCost, int Score) {
+        System.out.println("Final profit : " + cash);
+        System.out.println("Final costs : " + cost * 10);
         System.out.println("Monthly profit : " + monthlyProfit);
         System.out.println("Monthly costs : " + MonthlyCost);
+
 
     }
 
     @Override
-    public void randomGamingPC(Gaming_Model1 g1, Gaming_Model2 g2, Gaming_Model3 g3, int randomGaming, int randomWorker, int happy, int sad) {
+    public void randomGamingPC(Gaming_Model1 g1, Gaming_Model2 g2, Gaming_Model3 g3, int randomGaming, int randomWorker, int happy, int sad,Office_Model1 o1, Office_Model2 o2, Office_Model3 o3, double cash) {
         switch (randomGaming) {
             case 1:
+                System.out.println("a gamer showed up!");
                 System.out.println("The customer ordered the first gaming model");
                 System.out.println("The check price was: " + g1.getPrice());
+
 
                 if(randomWorker == 1){
                     System.out.println("Customer was served by an experienced worker! Satisfaction:" + happy);
@@ -52,6 +55,7 @@ public class View implements ViewInterface {
 
                 break;
             case 2:
+                System.out.println("a gamer showed up!");
                 System.out.println("The customer ordered the second gaming model");
                 System.out.println("The check price was: " + g2.getPrice());
 
@@ -63,6 +67,7 @@ public class View implements ViewInterface {
                 }
                 break;
             case 3:
+                System.out.println("a gamer showed up!");
                 System.out.println("The customer ordered the third gaming model");
                 System.out.println("The check price was: " + g3.getPrice());
 
@@ -73,6 +78,43 @@ public class View implements ViewInterface {
                     System.out.println("Customer was consulted by a new worker! Satisfaction:" + sad);
                 }
                 break;
+            case 4:
+                System.out.println("an office worker showed up!");
+                System.out.println("The customer ordered the first office model");
+                System.out.println("The check price was: " + o1.getPrice());
+
+                if(randomWorker == 1){
+                    System.out.println("Customer was served by an experienced worker! Satisfaction:" + happy);
+
+                }else{
+                    System.out.println("Customer was consulted by a new worker! Satisfaction:" + sad);
+                }
+                break;
+            case 5:
+                System.out.println("an office worker showed up!");
+                System.out.println("The customer ordered the second office model");
+                System.out.println("The check price was: " + o2.getPrice());
+
+                if(randomWorker == 1){
+                    System.out.println("Customer was served by an experienced worker! Satisfaction:" + happy);
+
+                }else{
+                    System.out.println("Customer was consulted by a new worker! Satisfaction:" + sad);
+                }
+                break;
+            case 6:
+                System.out.println("an office worker showed up!");
+                System.out.println("The customer ordered the third office model");
+                System.out.println("The check price was: " + o3.getPrice());
+
+                if(randomWorker == 1){
+                    System.out.println("Customer was served by an experienced worker! Satisfaction:" + happy);
+
+                }else{
+                    System.out.println("Customer was consulted by a new worker! Satisfaction:" + sad);
+                }
+                break;
+
         }
 
     }

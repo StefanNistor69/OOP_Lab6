@@ -2,7 +2,7 @@ package Employees;
 
 public class NoobWorker extends Worker{
 
-    public void NoobWorker(){
+    public void NoobWorkers(){
         System.out.println("Customer was served by a new worker");
 
     }

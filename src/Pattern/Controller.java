@@ -1,10 +1,10 @@
 package Pattern;
 import PC.*;
-import Client.*;
+
 import Employees.*;
 
 import java.util.Random;
-import java.util.Scanner;
+
 public class Controller implements ControllerInterface {
     ViewInterface view = new View();
     Model model = new Model();
@@ -26,38 +26,33 @@ public class Controller implements ControllerInterface {
             Office_Model1 o1 = model.getOffice_Model1();
             Office_Model2 o2 = model.getOffice_Model2();
             Office_Model3 o3 = model.getOffice_Model3();
-
+            ExperiencedWorker ex = model.getExperience();
+            NoobWorker noobs = model.getNoob();
             int randomGaming = model.randomGaming(rand);
-            int randomOffice = model.randomOffice(rand);
+            int randomPrice = model.randomPrice(rand);
+
             int happy = 10;
             int sad = -10;
             double profit = 0;
-            int cost = 0;
-            int MothlyCost = cost/12;
-            double monthlyProfit = profit/12;
+            double cash = 0;
+            double cost = 0;
 
-            int randomEvent = rand.nextInt(3 + 1);
+
+
+
             int randomWorker = model.randomWorker(rand);
             int Score = model.Score();
 
-                switch (randomEvent) {
-                    case 1:
-                        view.Gamer();
-
-                        view.randomGamingPC(g1, g2, g3, randomGaming, randomWorker, happy, sad);
-                        profit = model.AssembleGamingPC(g1, g2, g3, randomGaming, profit);
-                        break;
 
 
-                    case 2:
-                        view.OfficeWorker();
-                        view.randomOfficePC(o1, o2, o3, randomOffice, randomWorker, happy, sad);
-                        profit = model.AssembleOfficePC(o1, o2, o3, randomOffice, profit);
-                        break;
-                }
-                System.out.println("    ");
+            view.randomGamingPC(g1, g2, g3, randomGaming, randomWorker, happy, sad,o1,o2,o3,profit);
+            cash = cash + model.AssembleGamingPC(g1, g2, g3, randomPrice, cash,o1,o2,o3);
+            cost = cost + model.CostPC(g1,g2,g3,randomPrice,cost,o1,o2,o3);
+            System.out.println("    ");
                 if (System.currentTimeMillis() > end) {
-                    view.Statistics(profit, cost, MothlyCost, (int) monthlyProfit, Score);
+                    int monthlyProfit = (int) (cash/24);
+                    double MonthlyCost = cost/24;
+                    view.Statistics(cash, (int) cost, (int) MonthlyCost,  monthlyProfit, Score);
                     System.exit(0);
                 }
             }
